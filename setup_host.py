@@ -25,7 +25,7 @@ run("sudo rm -f /etc/nginx/sites-enabled/default")
 
 # 3. Copy the code to /var/www/it-defined.com
 run("sudo mkdir -p /var/www/it-defined.com")
-run("sudo mv /tmp/index.html /var/www/it-defined.com/index.html")
+run("sudo mv ./index.html /var/www/it-defined.com/index.html")
 
 # Reload nginx
 run("sudo nginx -t && sudo systemctl reload nginx")
