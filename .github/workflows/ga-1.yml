@@ -1,7 +1,10 @@
 name: Introduction Github Actions
+
 on: workflow_dispatch
+
 jobs:
   Say-Hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World!!
+      - name: step1
+        run: echo "Hello World!!
