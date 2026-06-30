@@ -1,0 +1,20 @@
+name: CI/CD Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      PEM_DIR: ~/.ssh
+      SSH_KEY_NAME: june2026.pem
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install paramiko
+      - run: mkdir -p ~/.ssh && echo "${{ secrets.SSH_KEY_B64 }}" | base64 -d > ~/.ssh/june2026.pem && chmod 600 ~/.ssh/june2026.pem
+      - run: python deploy.py

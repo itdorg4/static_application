@@ -9,6 +9,9 @@ on:
                 required: false
                 type: string
 
+    schedule:
+        - cron: '0 0 * * *'
+
     # push:
     #     branches:
     #         - main
@@ -30,9 +33,13 @@ on:
     # issues:
     #     types: [opened, reopened, closed, edited]
 
+
+    
+
+
 jobs:
   Say-Hello:
     runs-on: ubuntu-latest
     steps:
       - name: step1
-        run: echo "Hello World!!
+        run: echo "Hello World!!"
